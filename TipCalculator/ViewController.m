@@ -8,7 +8,11 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
+@interface ViewController () <UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UITextField *billAmountTextField;
+@property (weak, nonatomic) IBOutlet UITextField *percentAmountTextField;
+@property (weak, nonatomic) IBOutlet UILabel *tipAmountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *totalAmountLabel;
 
 @end
 
@@ -16,14 +20,30 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
+    
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:YES];
+    [self.billAmountTextField becomeFirstResponder];
 }
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    NSLog(@"%@", string);
+    NSLog(@"%@", textField.text);
+    
+    //textField.text = @"$";
+    
+    int newSubtotal = [@"9.25" floatValue];
+    
+    self.tipAmountLabel.text = [NSString stringWithFormat:@"$%.2f", newSubtotal * 0.15];
+
+    return YES;
+}
+
 
 
 @end
