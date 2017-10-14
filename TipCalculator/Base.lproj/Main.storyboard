@@ -12,7 +12,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Item-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
@@ -47,13 +47,6 @@
                                 <color key="textColor" red="0.57414853570000002" green="0.57416242360000003" blue="0.57415497299999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N2B-bS-ach">
-                                <rect key="frame" x="0.0" y="451" width="375" height="216"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="216" id="vCx-2w-M73"/>
-                                </constraints>
-                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="total" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S7c-3c-UD1">
                                 <rect key="frame" x="151.5" y="381" width="72" height="44"/>
                                 <constraints>
@@ -112,12 +105,9 @@
                             <constraint firstItem="ORa-73-nMG" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="Paa-MQ-aLb"/>
                             <constraint firstItem="S7c-3c-UD1" firstAttribute="top" secondItem="OLF-ll-Zje" secondAttribute="baseline" id="PkB-pu-ubl"/>
                             <constraint firstItem="5qe-fz-psP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="S4Z-08-q0i"/>
-                            <constraint firstItem="N2B-bS-ach" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="Y1u-aG-Nl4"/>
                             <constraint firstItem="S7c-3c-UD1" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="aGq-FK-SbY"/>
                             <constraint firstItem="5qe-fz-psP" firstAttribute="trailing" secondItem="L3z-Ie-vwU" secondAttribute="leading" id="bIx-IY-0xt"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="51j-0j-3lm" secondAttribute="trailing" id="d5i-XP-Hlt"/>
-                            <constraint firstItem="N2B-bS-ach" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="dfq-c8-3fK"/>
-                            <constraint firstAttribute="bottom" secondItem="N2B-bS-ach" secondAttribute="bottom" id="fn4-8M-ZEs"/>
                             <constraint firstItem="5qe-fz-psP" firstAttribute="centerY" secondItem="L3z-Ie-vwU" secondAttribute="centerY" id="fqi-vb-uaF"/>
                             <constraint firstItem="51j-0j-3lm" firstAttribute="height" secondItem="L3z-Ie-vwU" secondAttribute="height" id="h6z-1U-1qf"/>
                             <constraint firstItem="L3z-Ie-vwU" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="iTl-ao-YBr"/>
@@ -133,6 +123,7 @@
                             <outletCollection property="gestureRecognizers" destination="EZl-2s-rDC" appends="YES" id="NG0-0a-Wbu"/>
                         </connections>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="tot-2w-KrS"/>
                     <connections>
                         <outlet property="billAmountTextField" destination="ORa-73-nMG" id="8Sw-lz-cJM"/>
                         <outlet property="percentAmountTextField" destination="5qe-fz-psP" id="Dkp-t0-QfZ"/>
@@ -148,7 +139,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+            <point key="canvasLocation" x="476" y="133.5832083958021"/>
         </scene>
     </scenes>
 </document>
