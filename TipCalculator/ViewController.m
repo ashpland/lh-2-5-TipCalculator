@@ -23,6 +23,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tipPercentage = 0.15;
+    self.totalAmountLabel.adjustsFontSizeToFitWidth = YES;
+    self.totalAmountLabel.minimumScaleFactor = 0.5;
+    self.tipAmountLabel.adjustsFontSizeToFitWidth = YES;
+    self.tipAmountLabel.minimumScaleFactor = 0.5;
     
 }
 
@@ -32,47 +36,72 @@
     [self.billAmountTextField becomeFirstResponder];
 }
 
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+- (void)processSubtotalFor:(UITextField * _Nonnull)textField withRange:(const NSRange *)range andStringToAdd:(NSString * _Nonnull)string
+{
+  
+}
+
+- (void)processTipPercentage
 {
     
-    // TODO: implement delete
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    bool stringToAddIsntANumber = [string rangeOfCharacterFromSet:[NSCharacterSet decimalDigitCharacterSet]].location != 0;
+    bool isDeletingLastChar = range.length == 1;
     
-    bool newStringIsntANumber = [string rangeOfCharacterFromSet:[NSCharacterSet decimalDigitCharacterSet]].location != 0;
+    bool editingPercent = [textField isEqual:self.percentAmountTextField];
+    int tooLong = editingPercent ? 3 : 9;
+    bool stringIsTooLong = textField.text.length >= tooLong;
     
-    if (newStringIsntANumber) {
+    NSString *updatedString;
+    if (isDeletingLastChar) {
+        int lastCharLocation = editingPercent ? 2 : 1;
+        updatedString = [textField.text substringToIndex:textField.text.length - lastCharLocation];
+    }
+    else if ((stringIsTooLong || stringToAddIsntANumber)) {
         return NO;
+    } else {
+        updatedString = [textField.text stringByAppendingString:string];
     }
     
-//    NSString *oldValue;
-//
-//    if (textField.text.length == 0) {
-//        oldValue = @"$0.00";
-//    } else {
-//        oldValue = textField.text;
-//    }
+    float cleanNumber = [self getCleanFloatFromString:updatedString];
     
-    //NSString *oldValue = (textField.text.length == 0) ? @"$0.00" : textField.text;
+    if ([textField isEqual:self.billAmountTextField]) {
+        self.currentSubtotal = cleanNumber;
+        textField.text = [NSString stringWithFormat:@"$%.2f", cleanNumber];
+        
+    } else if ([textField isEqual:self.percentAmountTextField]) {
+        self.tipPercentage = cleanNumber;
+        textField.text = [NSString stringWithFormat:@"%.0f%%", cleanNumber * 100];
+    }
     
-    self.currentSubtotal = [self getFloatFromString:textField.text andAdd:string];
-    
-    textField.text = [NSString stringWithFormat:@"$%.2f", self.currentSubtotal];
+    if (cleanNumber == 0)
+        textField.text = @"";
     
     [self updateTipAndTotal];
     
     return NO;
 }
 
--(float)getFloatFromString:(NSString *)currentString andAdd:(NSString *)nextCharacter
+
+
+
+-(float)getCleanFloatFromString:(NSString *)currentString
 {
     NSString *cleanString = [[[currentString stringByReplacingOccurrencesOfString:@"$" withString:@""]
-                                              stringByReplacingOccurrencesOfString:@"." withString:@""]
-                                                 stringByAppendingString:nextCharacter];
+                              stringByReplacingOccurrencesOfString:@"." withString:@""]
+                             stringByReplacingOccurrencesOfString:@"%" withString:@""];
     
     return [cleanString floatValue] * 0.01;
 }
 
 -(void)updateTipAndTotal
 {
+    self.tipPercentage = self.tipPercentage > 0 ? self.tipPercentage : 0.15;
+    self.currentSubtotal = self.currentSubtotal > 0 ? self.currentSubtotal : 5;
+    
     float tipAmount = self.currentSubtotal * self.tipPercentage;
     
     self.tipAmountLabel.text = [NSString stringWithFormat:@"$%.2f", tipAmount];
