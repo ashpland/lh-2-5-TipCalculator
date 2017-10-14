@@ -36,15 +36,25 @@
     [self.billAmountTextField becomeFirstResponder];
 }
 
-- (void)processSubtotalFor:(UITextField * _Nonnull)textField withRange:(const NSRange *)range andStringToAdd:(NSString * _Nonnull)string
-{
-  
+- (IBAction)viewPanned:(id)sender {
+    
+    CGPoint translationInView = [sender translationInView:self.view];
+    
+    NSLog(@"Y: %f", translationInView.y);
+    
+    self.tipPercentage = self.tipPercentage - translationInView.y / 1000;
+    
+    self.tipPercentage = self.tipPercentage > 0.01 ? self.tipPercentage : 0.01;
+    self.tipPercentage = self.tipPercentage < 0.99 ? self.tipPercentage : 0.99;
+
+    self.percentAmountTextField.text = [NSString stringWithFormat:@"%.0f%%", self.tipPercentage * 100];
+    
+    [self updateTipAndTotal];
+    
+    [sender setTranslation:CGPointZero inView:self.view];
+
 }
 
-- (void)processTipPercentage
-{
-    
-}
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {

@@ -101,6 +101,7 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="OLF-ll-Zje" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="CHO-cG-gdW"/>
                             <constraint firstItem="51j-0j-3lm" firstAttribute="centerY" secondItem="L3z-Ie-vwU" secondAttribute="centerY" id="HLz-lM-C0H"/>
@@ -128,6 +129,9 @@
                             <constraint firstItem="5qe-fz-psP" firstAttribute="height" secondItem="L3z-Ie-vwU" secondAttribute="height" id="qI1-L2-B2N"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="EZl-2s-rDC" appends="YES" id="NG0-0a-Wbu"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="billAmountTextField" destination="ORa-73-nMG" id="8Sw-lz-cJM"/>
@@ -137,6 +141,12 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer cancelsTouchesInView="NO" minimumNumberOfTouches="1" id="EZl-2s-rDC">
+                    <connections>
+                        <action selector="viewPanned:" destination="BYZ-38-t0r" id="UEy-lR-xIR"/>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="UJO-6R-TrG"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
