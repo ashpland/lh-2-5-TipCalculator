@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  TipViewController.h
 //  TipCalculator
 //
 //  Created by Andrew on 2017-10-13.
@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Bill.h"
 
-@interface ViewController : UIViewController
+@interface TipViewController : UIViewController
+
+-(instancetype)initWIthBill:(Bill *)theBill;
 
 
 @end
