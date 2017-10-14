@@ -14,7 +14,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *tipAmountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalAmountLabel;
 @property (assign, nonatomic) float currentSubtotal;
-@property (assign, nonatomic) float tipPercentage;
+@property (assign, nonatomic) int tipPercentage;
+@property (assign, nonatomic) float tipIncrement;
 
 @end
 
@@ -22,7 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tipPercentage = 0.15;
+    self.tipPercentage = 15;
     self.totalAmountLabel.adjustsFontSizeToFitWidth = YES;
     self.totalAmountLabel.minimumScaleFactor = 0.5;
     self.tipAmountLabel.adjustsFontSizeToFitWidth = YES;
@@ -42,14 +43,25 @@
     
     NSLog(@"Y: %f", translationInView.y);
     
-    self.tipPercentage = self.tipPercentage - translationInView.y / 1000;
-    
-    self.tipPercentage = self.tipPercentage > 0.01 ? self.tipPercentage : 0.01;
-    self.tipPercentage = self.tipPercentage < 0.99 ? self.tipPercentage : 0.99;
+    self.tipIncrement = self.tipIncrement + translationInView.y;
 
-    self.percentAmountTextField.text = [NSString stringWithFormat:@"%.0f%%", self.tipPercentage * 100];
+    float threshold = 30;
     
-    [self updateTipAndTotal];
+    if (fabsf(self.tipIncrement) > threshold) {
+        
+        self.tipPercentage = self.tipPercentage - self.tipIncrement / threshold;
+        
+        self.tipPercentage = self.tipPercentage > 1 ? self.tipPercentage : 1;
+        self.tipPercentage = self.tipPercentage < 99 ? self.tipPercentage : 99;
+        
+        self.percentAmountTextField.text = [NSString stringWithFormat:@"%d%%", self.tipPercentage];
+        
+        [self updateTipAndTotal];
+        
+        self.tipIncrement = 0;
+    }
+    
+
     
     [sender setTranslation:CGPointZero inView:self.view];
 
@@ -83,8 +95,8 @@
         textField.text = [NSString stringWithFormat:@"$%.2f", cleanNumber];
         
     } else if ([textField isEqual:self.percentAmountTextField]) {
-        self.tipPercentage = cleanNumber;
-        textField.text = [NSString stringWithFormat:@"%.0f%%", cleanNumber * 100];
+        self.tipPercentage = (int)(cleanNumber * 100);
+        textField.text = [NSString stringWithFormat:@"%d%%", self.tipPercentage];
     }
     
     if (cleanNumber == 0)
@@ -109,10 +121,10 @@
 
 -(void)updateTipAndTotal
 {
-    self.tipPercentage = self.tipPercentage > 0 ? self.tipPercentage : 0.15;
+    self.tipPercentage = self.tipPercentage > 0 ? self.tipPercentage : 15;
     self.currentSubtotal = self.currentSubtotal > 0 ? self.currentSubtotal : 5;
     
-    float tipAmount = self.currentSubtotal * self.tipPercentage;
+    float tipAmount = self.currentSubtotal * self.tipPercentage / 100;
     
     self.tipAmountLabel.text = [NSString stringWithFormat:@"$%.2f", tipAmount];
     self.totalAmountLabel.text = [NSString stringWithFormat:@"$%.2f", self.currentSubtotal + tipAmount];
