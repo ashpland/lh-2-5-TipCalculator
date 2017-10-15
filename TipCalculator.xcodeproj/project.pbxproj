@@ -13,9 +13,9 @@
 		496B076C1F915498002E4EE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 496B076B1F915498002E4EE9 /* Assets.xcassets */; };
 		496B076F1F915498002E4EE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 496B076D1F915498002E4EE9 /* LaunchScreen.storyboard */; };
 		496B07721F915498002E4EE9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 496B07711F915498002E4EE9 /* main.m */; };
-		49850E9E1F92C48500E80CAC /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49850E9D1F92C48500E80CAC /* PageViewController.m */; };
 		49850EA11F92C5F800E80CAC /* Bill.m in Sources */ = {isa = PBXBuildFile; fileRef = 49850EA01F92C5F800E80CAC /* Bill.m */; };
 		49850EA41F92D60A00E80CAC /* SplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49850EA31F92D60A00E80CAC /* SplitViewController.m */; };
+		49850EA71F92F3EF00E80CAC /* MyPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49850EA61F92F3EF00E80CAC /* MyPageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,12 +29,12 @@
 		496B076E1F915498002E4EE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		496B07701F915498002E4EE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		496B07711F915498002E4EE9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		49850E9C1F92C48500E80CAC /* PageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PageViewController.h; sourceTree = "<group>"; };
-		49850E9D1F92C48500E80CAC /* PageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PageViewController.m; sourceTree = "<group>"; };
 		49850E9F1F92C5F800E80CAC /* Bill.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bill.h; sourceTree = "<group>"; };
 		49850EA01F92C5F800E80CAC /* Bill.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Bill.m; sourceTree = "<group>"; };
 		49850EA21F92D60A00E80CAC /* SplitViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SplitViewController.h; sourceTree = "<group>"; };
 		49850EA31F92D60A00E80CAC /* SplitViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SplitViewController.m; sourceTree = "<group>"; };
+		49850EA51F92F3EF00E80CAC /* MyPageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyPageViewController.h; sourceTree = "<group>"; };
+		49850EA61F92F3EF00E80CAC /* MyPageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyPageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,8 +76,8 @@
 				496B07681F915498002E4EE9 /* Main.storyboard */,
 				49850EA21F92D60A00E80CAC /* SplitViewController.h */,
 				49850EA31F92D60A00E80CAC /* SplitViewController.m */,
-				49850E9C1F92C48500E80CAC /* PageViewController.h */,
-				49850E9D1F92C48500E80CAC /* PageViewController.m */,
+				49850EA51F92F3EF00E80CAC /* MyPageViewController.h */,
+				49850EA61F92F3EF00E80CAC /* MyPageViewController.m */,
 				496B076B1F915498002E4EE9 /* Assets.xcassets */,
 				496B076D1F915498002E4EE9 /* LaunchScreen.storyboard */,
 				496B07701F915498002E4EE9 /* Info.plist */,
@@ -160,9 +160,9 @@
 				49850EA11F92C5F800E80CAC /* Bill.m in Sources */,
 				49850EA41F92D60A00E80CAC /* SplitViewController.m in Sources */,
 				496B07671F915498002E4EE9 /* TipViewController.m in Sources */,
+				49850EA71F92F3EF00E80CAC /* MyPageViewController.m in Sources */,
 				496B07721F915498002E4EE9 /* main.m in Sources */,
 				496B07641F915498002E4EE9 /* AppDelegate.m in Sources */,
-				49850E9E1F92C48500E80CAC /* PageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

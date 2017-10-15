@@ -1,5 +1,5 @@
 //
-//  PageViewController.h
+//  MyPageViewController.h
 //  TipCalculator
 //
 //  Created by Andrew on 2017-10-14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PageViewController : UIViewController <UIPageViewControllerDelegate>
+@interface MyPageViewController : UIPageViewController
 
 @end

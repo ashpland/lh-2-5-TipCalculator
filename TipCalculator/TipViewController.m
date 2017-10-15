@@ -13,7 +13,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *percentAmountTextField;
 @property (weak, nonatomic) IBOutlet UILabel *tipAmountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalAmountLabel;
-@property (nonatomic, strong) Bill *theBill;
 @property (assign, nonatomic) float tipIncrement;
 
 

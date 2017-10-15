@@ -1,18 +1,18 @@
 //
-//  PageViewController.m
+//  MyPageViewController.m
 //  TipCalculator
 //
 //  Created by Andrew on 2017-10-14.
 //  Copyright © 2017 Andrew. All rights reserved.
 //
 
-#import "PageViewController.h"
+#import "MyPageViewController.h"
 
-@interface PageViewController ()
+@interface MyPageViewController ()
 
 @end
 
-@implementation PageViewController
+@implementation MyPageViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

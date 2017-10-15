@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Bill.h"
+
 
 @interface SplitViewController : UIViewController
+
+@property (strong, nonatomic) Bill *theBill;
+
+-(instancetype)initWIthBill:(Bill *)theBill;
+
 
 @end

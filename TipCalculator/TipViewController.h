@@ -11,6 +11,8 @@
 
 @interface TipViewController : UIViewController
 
+@property (nonatomic, strong) Bill *theBill;
+
 -(instancetype)initWIthBill:(Bill *)theBill;
 
 

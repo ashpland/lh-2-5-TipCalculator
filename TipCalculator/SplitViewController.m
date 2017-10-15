@@ -7,7 +7,6 @@
 //
 
 #import "SplitViewController.h"
-#import "Bill.h"
 
 @interface SplitViewController ()
 
@@ -15,7 +14,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *numberOfPeopleSharing;
 @property (weak, nonatomic) IBOutlet UILabel *sharePerPersonLabel;
 @property (weak, nonatomic) IBOutlet UISlider *peopleSlider;
-@property (strong, nonatomic) Bill *theBill;
 
 - (IBAction)sliderChanges:(UISlider *)sender;
 
