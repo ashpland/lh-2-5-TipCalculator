@@ -43,7 +43,6 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    NSLog(@"Appear");
     [self.billAmountTextField becomeFirstResponder];
 }
 
@@ -51,7 +50,6 @@
 -(void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
-    NSLog(@"Did dissaper");
     [self.billAmountTextField resignFirstResponder];
 }
 
