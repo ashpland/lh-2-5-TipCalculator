@@ -42,8 +42,17 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    [super viewDidAppear:YES];
+    [super viewDidAppear:animated];
+    NSLog(@"Appear");
     [self.billAmountTextField becomeFirstResponder];
+}
+
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    NSLog(@"Did dissaper");
+    [self.billAmountTextField resignFirstResponder];
 }
 
 - (IBAction)viewPanned:(id)sender {
@@ -56,7 +65,7 @@
     
     if (fabsf(self.tipIncrement) > threshold) {
         
-        int tipChange = fabsf(self.tipIncrement / threshold);
+        int tipChange = -1 * self.tipIncrement / threshold;
         
         [self.theBill changeTipPercentage:tipChange];
         

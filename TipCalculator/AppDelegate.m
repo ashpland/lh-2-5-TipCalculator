@@ -12,12 +12,13 @@
 #import "SplitViewController.h"
 #import "MyPageViewController.h"
 
-@interface AppDelegate ()
 
+@interface AppDelegate ()
 @property (nonatomic, strong) Bill *theBill;
 @property (nonatomic, strong) TipViewController *tipViewController;
 @property (nonatomic, strong) SplitViewController *splitViewController;
 @property (nonatomic, strong) MyPageViewController *pageViewController;
+
 
 @end
 
@@ -30,10 +31,6 @@
     
     self.theBill = [Bill new];
     
-    //self.tipViewController = [[TipViewController alloc] initWIthBill:self.theBill];
-    //self.splitViewController = [[SplitViewController alloc] initWIthBill:self.theBill];
-    //PageStoryboard, TipStoryboard, SplitStoryboard
-
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     self.tipViewController = [storyboard instantiateViewControllerWithIdentifier:@"TipStoryboard"];

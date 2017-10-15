@@ -16,6 +16,7 @@
     if (self) {
         _tipPercentage = 15;
         _currentSubtotal = 500;
+        _peopleSharing = 5;
 
     }
     return self;
@@ -50,7 +51,7 @@
 
 -(NSString *)subtotalAmountString
 {
-    return [self getCurrencyStringFrom:self.tipAmount];
+    return [self getCurrencyStringFrom:self.currentSubtotal];
 }
 
 -(NSString *)tipPercentageString
@@ -75,7 +76,17 @@
 
 -(NSString *)getCurrencyStringFrom:(int)centsInt
 {
-    NSMutableString *newCurrencyString = [NSMutableString stringWithFormat:@"$%d", centsInt];
+    
+    NSString *padZeros;
+    if (10 < centsInt && centsInt < 100 )
+        padZeros = @"0";
+    else if (centsInt < 10)
+        padZeros = @"00";
+    else
+        padZeros = @"";
+
+    
+    NSMutableString *newCurrencyString = [NSMutableString stringWithFormat:@"$%@%d", padZeros, centsInt];
     [newCurrencyString insertString:@"." atIndex:newCurrencyString.length - 2];
     return newCurrencyString;
 }

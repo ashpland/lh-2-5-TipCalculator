@@ -32,13 +32,26 @@
 }
 
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    self.totalAmountLabel.text = [self.theBill totalAmountString];
+    self.sharePerPersonLabel.text = [self.theBill totalShareString];
+    
+    
 }
 
 
 - (IBAction)sliderChanges:(UISlider *)sender {
+    int sliderValue = sender.value + 0.5;
+    NSLog(@"Int: %d, Float:%f", sliderValue, sender.value);
+
+    self.theBill.peopleSharing = sliderValue;
+    
+    self.peopleSlider.value = sliderValue;
+    self.numberOfPeopleSharing.text = [NSString stringWithFormat:@"%d", sliderValue];
+    self.sharePerPersonLabel.text = [self.theBill totalShareString];
 }
 
 - (IBAction)leftEdgePan:(UIScreenEdgePanGestureRecognizer *)sender {

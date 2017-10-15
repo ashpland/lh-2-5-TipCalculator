@@ -12,9 +12,9 @@
 
 @property (assign, nonatomic) int currentSubtotal;
 @property (assign, nonatomic) int tipPercentage;
+@property (assign, nonatomic) int peopleSharing;
 @property (assign, nonatomic, readonly) int tipAmount;
 @property (assign, nonatomic, readonly) int totalAmount;
-@property (assign, nonatomic, readonly) int peopleSharing;
 @property (assign, nonatomic, readonly) int totalShare;
 @property (strong, nonatomic, readonly) NSString *subtotalAmountString;
 @property (strong, nonatomic, readonly) NSString *tipPercentageString;
