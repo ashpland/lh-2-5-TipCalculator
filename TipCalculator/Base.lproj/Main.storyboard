@@ -164,7 +164,7 @@
                     </connections>
                 </screenEdgePanGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="441" y="-97"/>
+            <point key="canvasLocation" x="-1884" y="-126"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="Ugn-Vd-MQI">
@@ -274,7 +274,7 @@
                     </connections>
                 </screenEdgePanGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1313" y="-98"/>
+            <point key="canvasLocation" x="-1012" y="-127"/>
         </scene>
     </scenes>
 </document>

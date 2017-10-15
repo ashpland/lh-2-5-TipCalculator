@@ -15,7 +15,6 @@
 @property (strong, nonatomic) UIViewController *nextView;
 @property (strong, nonatomic) UIPageViewController *pageView;
 
--(instancetype)initWIthBill:(Bill *)theBill;
 
 
 @end

@@ -22,15 +22,6 @@
 
 @implementation SplitViewController
 
--(instancetype)initWIthBill:(Bill *)theBill
-{
-    self = [super init];
-    if (self) {
-        _theBill = theBill;
-    }
-    return self;
-}
-
 
 -(void)viewWillAppear:(BOOL)animated
 {

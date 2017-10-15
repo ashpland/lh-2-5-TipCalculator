@@ -21,15 +21,6 @@
 
 @implementation TipViewController
 
--(instancetype)initWIthBill:(Bill *)theBill
-{
-    self = [super init];
-    if (self) {
-        _theBill = theBill;
-    }
-    return self;
-}
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -44,6 +35,7 @@
 {
     [super viewDidAppear:animated];
     [self.billAmountTextField becomeFirstResponder];
+    // FIXME: Figure out why this doesn't work when swiping back
 }
 
 
@@ -67,7 +59,7 @@
         
         [self.theBill changeTipPercentage:tipChange];
         
-        self.percentAmountTextField.text = [NSString stringWithFormat:@"%d%%", self.theBill.tipPercentage];
+        self.percentAmountTextField.text = [self.theBill tipPercentageString];
         
         [self updateTipAndTotal];
         
@@ -134,14 +126,14 @@
 
 -(void)updateTipAndTotal
 {
-    [self resetValuesIfFieldsAreEmpty];
+    [self resetDefaultsIfFieldsAreEmpty];
     
     
     self.tipAmountLabel.text = [self.theBill tipAmountString];
     self.totalAmountLabel.text = [self.theBill totalAmountString];
 }
 
--(void)resetValuesIfFieldsAreEmpty
+-(void)resetDefaultsIfFieldsAreEmpty
 {
     
     if ([self.tipAmountLabel.text isEqualToString:@""]){
@@ -150,7 +142,6 @@
     if ([self.billAmountTextField.text isEqualToString:@""]){
         self.theBill.currentSubtotal = 500;
     }
-    
 }
 
 
