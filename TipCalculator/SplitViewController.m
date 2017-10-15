@@ -7,31 +7,38 @@
 //
 
 #import "SplitViewController.h"
+#import "Bill.h"
 
 @interface SplitViewController ()
+
+@property (weak, nonatomic) IBOutlet UILabel *totalAmountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *numberOfPeopleSharing;
+@property (weak, nonatomic) IBOutlet UILabel *sharePerPersonLabel;
+@property (weak, nonatomic) IBOutlet UISlider *peopleSlider;
+@property (strong, nonatomic) Bill *theBill;
+
+- (IBAction)sliderChanges:(UISlider *)sender;
 
 @end
 
 @implementation SplitViewController
+
+-(instancetype)initWIthBill:(Bill *)theBill
+{
+    self = [super init];
+    if (self) {
+        _theBill = theBill;
+    }
+    return self;
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+- (IBAction)sliderChanges:(UISlider *)sender {
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end

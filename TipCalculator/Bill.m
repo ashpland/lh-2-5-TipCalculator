@@ -43,6 +43,11 @@
     return self.currentSubtotal + self.tipAmount;
 }
 
+-(int)totalShare
+{
+    return self.totalAmount / self.peopleSharing;
+}
+
 -(NSString *)subtotalAmountString
 {
     return [self getCurrencyStringFrom:self.tipAmount];
@@ -62,6 +67,12 @@
     return [self getCurrencyStringFrom:self.totalAmount];
 }
 
+-(NSString *)totalShareString
+{
+    return [self getCurrencyStringFrom:self.totalShare];
+}
+
+
 -(NSString *)getCurrencyStringFrom:(int)centsInt
 {
     NSMutableString *newCurrencyString = [NSMutableString stringWithFormat:@"$%d", centsInt];
@@ -73,6 +84,7 @@
 {
     return [NSString stringWithFormat:@"%d%%", percentInt];
 }
+
 
 
 @end
