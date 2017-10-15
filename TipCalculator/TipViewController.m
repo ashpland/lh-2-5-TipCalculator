@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *tipAmountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalAmountLabel;
 @property (assign, nonatomic) float tipIncrement;
+- (IBAction)rightEdgePan:(UIScreenEdgePanGestureRecognizer *)sender;
 
 
 @end
@@ -146,4 +147,8 @@
 }
 
 
+- (IBAction)rightEdgePan:(UIScreenEdgePanGestureRecognizer *)sender {
+    
+    [self.pageView setViewControllers:@[self.nextView] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
+}
 @end

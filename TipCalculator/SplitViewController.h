@@ -13,6 +13,9 @@
 @interface SplitViewController : UIViewController
 
 @property (strong, nonatomic) Bill *theBill;
+@property (strong, nonatomic) UIViewController *nextView;
+@property (strong, nonatomic) UIPageViewController *pageView;
+
 
 -(instancetype)initWIthBill:(Bill *)theBill;
 

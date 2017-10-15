@@ -42,7 +42,20 @@
     self.splitViewController = [storyboard instantiateViewControllerWithIdentifier:@"SplitStoryboard"];
     self.splitViewController.theBill = self.theBill;
     
+   
+    
+    
     self.pageViewController = [[MyPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
+    
+    
+    self.tipViewController.nextView = self.splitViewController;
+    self.tipViewController.pageView = self.pageViewController;
+    self.splitViewController.nextView = self.tipViewController;
+    self.splitViewController.pageView = self.pageViewController;
+
+    
+    
+    
     
     
     [self.pageViewController setViewControllers:@[self.tipViewController] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];

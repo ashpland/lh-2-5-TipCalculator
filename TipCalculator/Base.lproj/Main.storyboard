@@ -159,6 +159,9 @@
                 </panGestureRecognizer>
                 <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="eBe-Hb-RXr">
                     <rectEdge key="edges" right="YES"/>
+                    <connections>
+                        <action selector="rightEdgePan:" destination="BYZ-38-t0r" id="j7R-5t-jYu"/>
+                    </connections>
                 </screenEdgePanGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="441" y="-97"/>
@@ -227,6 +230,7 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="U8b-Zd-C21" firstAttribute="width" secondItem="Bgh-AC-2j4" secondAttribute="width" multiplier="0.75" id="DeF-aB-hDd"/>
                             <constraint firstItem="6pa-Pa-g8n" firstAttribute="centerX" secondItem="zNs-qv-w0J" secondAttribute="centerX" id="L0a-fu-4G2"/>
@@ -251,6 +255,9 @@
                             <constraint firstItem="HRK-4f-Fzx" firstAttribute="centerY" secondItem="zNs-qv-w0J" secondAttribute="centerY" multiplier="1.2" id="zxA-ny-2RO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zNs-qv-w0J"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="1XD-Hj-mLT" appends="YES" id="Ahk-iJ-0MC"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="numberOfPeopleSharing" destination="3B5-2V-IoO" id="1rM-cm-KeN"/>
@@ -260,6 +267,12 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZiR-pn-lBv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="1XD-Hj-mLT">
+                    <rectEdge key="edges" left="YES"/>
+                    <connections>
+                        <action selector="leftEdgePan:" destination="ToF-kt-h9y" id="AEj-MW-u6S"/>
+                    </connections>
+                </screenEdgePanGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1313" y="-98"/>
         </scene>

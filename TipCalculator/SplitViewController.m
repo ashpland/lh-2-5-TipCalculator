@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UISlider *peopleSlider;
 
 - (IBAction)sliderChanges:(UISlider *)sender;
+- (IBAction)leftEdgePan:(UIScreenEdgePanGestureRecognizer *)sender;
 
 @end
 
@@ -38,5 +39,10 @@
 
 
 - (IBAction)sliderChanges:(UISlider *)sender {
+}
+
+- (IBAction)leftEdgePan:(UIScreenEdgePanGestureRecognizer *)sender {
+    [self.pageView setViewControllers:@[self.nextView] direction:UIPageViewControllerNavigationDirectionReverse animated:YES completion:nil];
+
 }
 @end
