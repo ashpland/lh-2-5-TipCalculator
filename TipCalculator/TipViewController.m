@@ -34,16 +34,13 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self.billAmountTextField becomeFirstResponder];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.billAmountTextField becomeFirstResponder];
+     });
     // FIXME: Figure out why this doesn't work when swiping back
 }
 
 
--(void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-    [self.billAmountTextField resignFirstResponder];
-}
 
 - (IBAction)viewPanned:(id)sender {
     
