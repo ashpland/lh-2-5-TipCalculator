@@ -18,6 +18,9 @@
 - (IBAction)sliderChanges:(UISlider *)sender;
 - (IBAction)leftEdgePan:(UIScreenEdgePanGestureRecognizer *)sender;
 
+
+
+
 @end
 
 @implementation SplitViewController

@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *totalAmountLabel;
 @property (assign, nonatomic) float tipIncrement;
 - (IBAction)rightEdgePan:(UIScreenEdgePanGestureRecognizer *)sender;
+@property (weak, nonatomic) IBOutlet UIView *keyboardBuffer;
 
 
 @end
@@ -28,6 +29,48 @@
     self.totalAmountLabel.minimumScaleFactor = 0.5;
     self.tipAmountLabel.adjustsFontSizeToFitWidth = YES;
     self.tipAmountLabel.minimumScaleFactor = 0.5;
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:NSSelectorFromString(@"keyboardWillShowNotification:")
+                                                 name:UIKeyboardWillShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:NSSelectorFromString(@"keyboardWillHideNotification:")
+                                                 name:UIKeyboardWillHideNotification object:nil];
+}
+
+-(void)keyboardWillShowNotification:(NSNotification *)notification
+{
+    [self updateBottomLayoutConstraintWithNotification: notification];
+}
+
+-(void)keyboardWillHideNotification:(NSNotification *)notification
+{
+    [self updateBottomLayoutConstraintWithNotification: notification];
+}
+
+-(void)updateBottomLayoutConstraintWithNotification:(NSNotification *)notification
+{
+    NSDictionary<NSString *, NSValue *> *userInfo = notification.userInfo;
+
+    CGRect keyboardEndFrame = [userInfo[@"UIKeyboardFrameEndUserInfoKey"] CGRectValue];
+    
+    CGRect convertedKeyboardEndFrame = [self.view convertRect:keyboardEndFrame toView:self.view.window];
+    
+    CGFloat newKeyboardBufferHeight = CGRectGetMaxY(self.view.bounds) - CGRectGetMinY(convertedKeyboardEndFrame);
+    
+    
+    for (NSLayoutConstraint *constraint in self.keyboardBuffer.constraints) {
+        if ([constraint.firstAnchor isEqual:self.keyboardBuffer.heightAnchor] ) {
+            constraint.constant = newKeyboardBufferHeight;
+        }
+    }
+    
     
 }
 
