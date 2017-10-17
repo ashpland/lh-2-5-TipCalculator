@@ -71,6 +71,10 @@
         }
     }
     
+    [UIView animateWithDuration:0.5 animations:^{
+        [self.view layoutIfNeeded];
+    }];
+    
     
 }
 
@@ -80,7 +84,6 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.billAmountTextField becomeFirstResponder];
      });
-    // FIXME: Figure out why this doesn't work when swiping back
 }
 
 
